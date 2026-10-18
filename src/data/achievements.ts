@@ -1,4 +1,12 @@
-export const achievements = [
+export type Achievement = {
+  title: string;
+  context: string;
+  description: string;
+  /** Optional link to the certificate, served from /public/certificates. */
+  certificate?: string;
+};
+
+export const achievements: Achievement[] = [
   {
     title: "First Class Honours",
     context: "BSc Software Engineering, University of Leicester",
@@ -22,6 +30,14 @@ export const achievements = [
     context: "University of Leicester — Group Leader",
     description:
       "Led the team that won Best Group Project, competing against 250+ students. Our placement management system was selected by the university administration for institution-wide implementation.",
+    certificate: "/certificates/best-se-group-project.pdf",
+  },
+  {
+    title: "2nd Place — The Wonder Project",
+    context: "University of Leicester — Student Learning Community",
+    description:
+      "Awarded second place in The Wonder Project, presented by the Student Learning Community team.",
+    certificate: "/certificates/wonder-project-2nd-place.png",
   },
   {
     title: "Teaching & Student Leadership",

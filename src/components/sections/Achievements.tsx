@@ -1,4 +1,4 @@
-import { Award, Trophy, Medal, Users2, GraduationCap } from "lucide-react";
+import { Award, Trophy, Medal, Users2, GraduationCap, FileText } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -30,6 +30,18 @@ export function Achievements() {
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     {item.description}
                   </p>
+                  {item.certificate && (
+                    <a
+                      href={item.certificate}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open certificate: ${item.title}`}
+                      className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs text-muted-2 transition-colors hover:text-accent"
+                    >
+                      <FileText className="h-3.5 w-3.5" strokeWidth={1.75} />
+                      View certificate
+                    </a>
+                  )}
                 </div>
               </Reveal>
             );

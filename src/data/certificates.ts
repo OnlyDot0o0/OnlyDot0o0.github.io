@@ -1,0 +1,119 @@
+// Full certificate list. Each entry with `files` links to the certificate
+// itself, served from /public/certificates.
+//
+// `minutes` is only filled in where the certificate (or its file name) states a
+// duration, so totals computed from this list are a lower bound.
+
+export type CertificateFile = { label: string; href: string };
+
+export type Certificate = {
+  title: string;
+  issuer: string;
+  category: string;
+  /** ISO date, either YYYY-MM-DD or YYYY-MM. Omitted when the certificate has no date. */
+  date?: string;
+  minutes?: number;
+  files?: CertificateFile[];
+};
+
+export const certificateCategories = [
+  { key: "awards", label: "Awards & Competitions", description: "Recognition from university work and competitions." },
+  { key: "data", label: "Data Science & Programming", description: "Foundations across computer science and applied data work." },
+  { key: "cloud", label: "Cloud & AI", description: "Cloud platform fundamentals and applied AI skills." },
+  { key: "cyber", label: "Cybersecurity", description: "Information security, threat awareness and open-source investigation." },
+  { key: "game", label: "Game Development & XR", description: "Game engines, Unity and immersive technology." },
+  { key: "design", label: "UX & Product Design", description: "Designing usable, inclusive digital products." },
+  { key: "science", label: "Technology, Science & Society", description: "Applied engineering and science beyond pure software." },
+  { key: "business", label: "Business, Marketing & Analytics", description: "Understanding the business and data side of digital products." },
+  { key: "pro", label: "Professional Development & Leadership", description: "Mentoring, communication, learning skills and professional practice." },
+  { key: "workplace", label: "Workplace Skills & Languages", description: "Office tools and language courses." },
+] as const;
+
+export const certificates: Certificate[] = [
+  { title: "Best Software Engineering Group Project, Year 2", issuer: "University of Leicester · School of Computing and Mathematical Sciences", category: "awards", files: [{ label: "Certificate", href: "/certificates/best-se-group-project.pdf" }] },
+  { title: "2nd place — The Wonder Project", issuer: "University of Leicester · Student Learning Community", category: "awards", files: [{ label: "Certificate", href: "/certificates/wonder-project-2nd-place.png" }] },
+  { title: "One Thousand and One Nights Game Jam — appreciation certificate (first stage)", issuer: "QABAS", category: "awards", files: [{ label: "Certificate", href: "/certificates/game-jam-1001-nights.pdf" }] },
+  { title: "CS50x: Introduction to Computer Science", issuer: "HarvardX (edX)", category: "data", date: "2022-10-07", files: [{ label: "edX verified certificate", href: "/certificates/cs50x-edx.pdf" }, { label: "CS50 certificate", href: "/certificates/cs50x-cs50.pdf" }] },
+  { title: "Python Basics for Data Science (PY0101EN)", issuer: "IBM (edX)", category: "data", date: "2022-10-06", minutes: 900, files: [{ label: "Certificate", href: "/certificates/ibm-python-basics.pdf" }] },
+  { title: "Analyzing Data with Python (DA0101EN)", issuer: "IBM (edX)", category: "data", date: "2022-10-15", minutes: 900, files: [{ label: "Certificate", href: "/certificates/ibm-analyzing-data.pdf" }] },
+  { title: "Visualizing Data with Python (DV0101EN)", issuer: "IBM (edX)", category: "data", date: "2022-12-04", minutes: 900, files: [{ label: "Certificate", href: "/certificates/ibm-visualizing-data.pdf" }] },
+  { title: "Learning Python", issuer: "LinkedIn Learning", category: "data", date: "2021-11-15", minutes: 147, files: [{ label: "Certificate", href: "/certificates/li-learning-python.pdf" }] },
+  { title: "Gradle for Java-Based Applications and Libraries", issuer: "LinkedIn Learning", category: "data", date: "2023-01-12", minutes: 57, files: [{ label: "Certificate", href: "/certificates/li-gradle.pdf" }] },
+  { title: "15 Mistakes to Avoid in Data Science", issuer: "LinkedIn Learning", category: "data", date: "2023-04-08", minutes: 19, files: [{ label: "Certificate", href: "/certificates/li-15-mistakes-data-science.pdf" }] },
+  { title: "Java Programming", issuer: "Great Learning Academy", category: "data", date: "2022-10", minutes: 120, files: [{ label: "Certificate", href: "/certificates/java-great-learning.pdf" }] },
+  { title: "Node.js for Beginners", issuer: "Coursat", category: "data", date: "2022-08-23", minutes: 120, files: [{ label: "Certificate", href: "/certificates/nodejs-coursat.jpeg" }] },
+  { title: "R Programming Basics", issuer: "Reed Courses", category: "data", date: "2022-08-22", minutes: 120, files: [{ label: "Certificate", href: "/certificates/r-programming-basics.pdf" }] },
+  { title: "Simple coding", issuer: "The Open University (OpenLearn)", category: "data", date: "2022-07-23", minutes: 120, files: [{ label: "Certificate", href: "/certificates/ol-simple-coding.pdf" }] },
+  { title: "Computer Programming for Everyone", issuer: "University of Leeds & Institute of Coding (FutureLearn)", category: "data", date: "2021-01-25", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-computer-programming.pdf" }] },
+  { title: "Learn to Code for the Web", issuer: "University of Leeds & Institute of Coding (FutureLearn)", category: "data", date: "2021-01-05", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-code-for-the-web.pdf" }] },
+  { title: "Backend Web Development (Python) — Side Hustle Internship, cohort 6", issuer: "Side Hustle", category: "data", date: "2022-12-24", minutes: 600, files: [{ label: "Certificate", href: "/certificates/side-hustle-python.pdf" }] },
+  { title: "Data Analysis", issuer: "Doroob", category: "data", date: "2020-04-30", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-data-analysis.pdf" }] },
+  { title: "Professional Certificate in Google Cloud Computing Foundations", issuer: "Google Cloud (edX)", category: "cloud", date: "2024-11", files: [{ label: "Certificate", href: "/certificates/gcp-professional-cert.pdf" }] },
+  { title: "GCCF1x: Cloud Computing Fundamentals", issuer: "Google Cloud (edX)", category: "cloud", date: "2022-12-25", minutes: 300, files: [{ label: "Certificate", href: "/certificates/gccf1x.pdf" }] },
+  { title: "GCCF2x: Infrastructure in Google Cloud", issuer: "Google Cloud (edX)", category: "cloud", date: "2024-03-30", files: [{ label: "Certificate", href: "/certificates/gccf2x.pdf" }] },
+  { title: "GCCF3x: Networking and Security in Google Cloud", issuer: "Google Cloud (edX)", category: "cloud", date: "2024-07-22", minutes: 600, files: [{ label: "Certificate", href: "/certificates/gccf3x.pdf" }] },
+  { title: "GCCF4x: Data, ML, and AI in Google Cloud", issuer: "Google Cloud (edX)", category: "cloud", date: "2024-11-09", minutes: 300, files: [{ label: "Certificate", href: "/certificates/gccf4x.pdf" }] },
+  { title: "Digital Skills: Artificial Intelligence", issuer: "Accenture (FutureLearn)", category: "cloud", date: "2021-11-11", minutes: 360, files: [{ label: "Certificate", href: "/certificates/fl-ai-accenture.pdf" }] },
+  { title: "Get Ready for Generative AI", issuer: "LinkedIn Learning", category: "cloud", date: "2023-04-11", minutes: 5, files: [{ label: "Certificate", href: "/certificates/li-genai.pdf" }] },
+  { title: "AI 2041: Five Visions for Our Future (Book Bite)", issuer: "LinkedIn Learning", category: "cloud", date: "2023-10-13", minutes: 17, files: [{ label: "Certificate", href: "/certificates/li-ai-2041.pdf" }] },
+  { title: "The Importance of Data Science and Artificial Intelligence", issuer: "Doroob", category: "cloud", date: "2020-05-09", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-ds-ai.pdf" }] },
+  { title: "Introduction to cyber security: stay safe online", issuer: "The Open University (OpenLearn)", category: "cyber", date: "2022-03-29", minutes: 1440, files: [{ label: "Certificate", href: "/certificates/ol-cyber-safe-online.pdf" }] },
+  { title: "Information security", issuer: "The Open University (OpenLearn)", category: "cyber", date: "2022-07-24", minutes: 600, files: [{ label: "Certificate", href: "/certificates/ol-info-security.pdf" }] },
+  { title: "Learning from major cyber security incidents", issuer: "The Open University (OpenLearn)", category: "cyber", date: "2022-03-31", minutes: 480, files: [{ label: "Certificate", href: "/certificates/ol-major-incidents.pdf" }] },
+  { title: "Cyber Security", issuer: "Doroob", category: "cyber", date: "2020-04-29", minutes: 180, files: [{ label: "Certificate", href: "/certificates/doroob-cyber-security.pdf" }] },
+  { title: "Introduction to Cyber Security", issuer: "Digital Giving Initiative", category: "cyber", date: "2019-07-29", minutes: 120, files: [{ label: "Certificate", href: "/certificates/digital-giving-cyber.jpg" }] },
+  { title: "OSINT Basics & Investigation Tools (workshop)", issuer: "CyberGuard club", category: "cyber", date: "2026-02-03", files: [{ label: "Certificate", href: "/certificates/cyberguard-osint.png" }] },
+  { title: "Cert Prep: Unity Certified Associate Game Developer — UI and 2D Games", issuer: "LinkedIn Learning", category: "game", date: "2023-01-19", minutes: 98, files: [{ label: "Certificate", href: "/certificates/li-unity-cert-prep.pdf" }] },
+  { title: "Introduction to C# with Unity", issuer: "LinkedIn Learning", category: "game", date: "2023-01-17", minutes: 39, files: [{ label: "Certificate", href: "/certificates/li-csharp-unity.pdf" }] },
+  { title: "Anatomy of a Game Engine", issuer: "DigiPen Institute of Technology (Gamers8)", category: "game", files: [{ label: "Certificate", href: "/certificates/digipen-game-engine.pdf" }] },
+  { title: "Introduction to Virtual, Augmented and Mixed Reality", issuer: "Lancaster University & Institute of Coding (FutureLearn)", category: "game", date: "2022-03-11", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-vr-ar-mr.pdf" }] },
+  { title: "Creating a Great User Experience for Mobile Apps", issuer: "University of Leeds & Institute of Coding (FutureLearn)", category: "design", date: "2021-09-28", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-mobile-ux.pdf" }] },
+  { title: "Designing for a Diverse and Inclusive Future", issuer: "Samsung (FutureLearn)", category: "design", date: "2022-06-27", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-inclusive-design.pdf" }] },
+  { title: "Digital Skills: Mobile", issuer: "Accenture (FutureLearn)", category: "design", date: "2022-03-09", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-digital-mobile.pdf" }] },
+  { title: "Introduction to Graphic Design", issuer: "Doroob", category: "design", date: "2020-04-30", minutes: 300, files: [{ label: "Certificate", href: "/certificates/doroob-graphic-design.pdf" }] },
+  { title: "For Pod's Sake: Getting Started & Heard in Podcasting (short course)", issuer: "REAL Initiative", category: "design", date: "2023-03", files: [{ label: "Certificate", href: "/certificates/podcasting-course.pdf" }] },
+  { title: "Introduction to Physical Computing", issuer: "Lancaster University & Institute of Coding (FutureLearn)", category: "science", date: "2022-03-16", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-physical-computing.pdf" }] },
+  { title: "Endangered Archaeology: Using Remote Sensing to Protect Cultural Heritage", issuer: "Durham, Leicester and Oxford universities & British Council (FutureLearn)", category: "science", date: "2022-07-18", minutes: 1080, files: [{ label: "Certificate", href: "/certificates/fl-endangered-archaeology.pdf" }] },
+  { title: "Smart cities", issuer: "The Open University (OpenLearn)", category: "science", date: "2022-04-19", minutes: 1440, files: [{ label: "Certificate", href: "/certificates/ol-smart-cities.pdf" }] },
+  { title: "An overview of active galaxies", issuer: "The Open University (OpenLearn)", category: "science", date: "2022-04-06", minutes: 900, files: [{ label: "Certificate", href: "/certificates/ol-active-galaxies.pdf" }] },
+  { title: "Water and human health", issuer: "The Open University (OpenLearn)", category: "science", date: "2022-07-22", minutes: 540, files: [{ label: "Certificate", href: "/certificates/ol-water-health.pdf" }] },
+  { title: "Starting with psychology", issuer: "The Open University (OpenLearn)", category: "science", date: "2022-07-30", minutes: 300, files: [{ label: "Certificate", href: "/certificates/ol-psychology.pdf" }] },
+  { title: "Exploring the relationship between anxiety and depression", issuer: "The Open University (OpenLearn)", category: "science", date: "2022-04-05", minutes: 180, files: [{ label: "Certificate", href: "/certificates/ol-anxiety-depression.pdf" }] },
+  { title: "Introduction to Fiber Optic Cables", issuer: "Doroob", category: "science", date: "2020-05-04", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-fiber-optics.pdf" }] },
+  { title: "Fundamentals of Digital Marketing", issuer: "Google (Skills from Google)", category: "business", date: "2020-10-13", minutes: 2400, files: [{ label: "Certificate", href: "/certificates/google-digital-marketing.pdf" }] },
+  { title: "Digital Skills: Web Analytics", issuer: "Accenture (FutureLearn)", category: "business", date: "2022-03-04", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-web-analytics.pdf" }] },
+  { title: "Operations Strategy for Business", issuer: "LinkedIn Learning", category: "business", date: "2026-02-10", minutes: 74, files: [{ label: "Certificate", href: "/certificates/li-operations-strategy.pdf" }] },
+  { title: "Exploring Careers in Business", issuer: "Everything D&I · University of Leicester", category: "business", date: "2022-06-28", minutes: 120, files: [{ label: "Certificate", href: "/certificates/careers-in-business.pdf" }] },
+  { title: "Mistakes That Threaten the Growth of Leading Companies", issuer: "Doroob", category: "business", date: "2020-05-13", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-mistakes-companies.pdf" }] },
+  { title: "Microsoft UK Embrace ERG Mentoring Programme", issuer: "Microsoft UK · Everything D&I", category: "pro", date: "2022-12-16", minutes: 600, files: [{ label: "Certificate", href: "/certificates/ms-embrace-mentoring.pdf" }] },
+  { title: "Deloitte Accelerator — certificate of attendance (3–6 April)", issuer: "Everything D&I in collaboration with Deloitte", category: "pro", date: "2023-04-03", files: [{ label: "Certificate", href: "/certificates/deloitte-accelerator.pdf" }] },
+  { title: "Communication and Interpersonal Skills at Work", issuer: "University of Leeds & Institute of Coding (FutureLearn)", category: "pro", date: "2022-03-29", minutes: 240, files: [{ label: "Certificate", href: "/certificates/fl-communication-skills.pdf" }] },
+  { title: "Practicing Gratitude Teach-Out", issuer: "University of Michigan (FutureLearn)", category: "pro", date: "2021-11-11", minutes: 120, files: [{ label: "Certificate", href: "/certificates/fl-gratitude.pdf" }] },
+  { title: "Talk the talk", issuer: "The Open University (OpenLearn)", category: "pro", date: "2022-08-03", minutes: 720, files: [{ label: "Certificate", href: "/certificates/ol-talk-the-talk.pdf" }] },
+  { title: "The importance of interpersonal skills", issuer: "The Open University (OpenLearn)", category: "pro", date: "2022-07-19", minutes: 180, files: [{ label: "Certificate", href: "/certificates/ol-interpersonal-skills.pdf" }] },
+  { title: "CV Writing Masterclass", issuer: "Reed Courses", category: "pro", date: "2022-08-26", minutes: 60, files: [{ label: "Certificate", href: "/certificates/reed-cv-writing.pdf" }] },
+  { title: "Critical Thinking and Problem Solving", issuer: "LinkedIn Learning", category: "pro", date: "2023-01-20", minutes: 45, files: [{ label: "LinkedIn Learning certificate", href: "/certificates/li-critical-thinking-linkedin.pdf" }, { label: "CPE certificate", href: "/certificates/li-critical-thinking-cpe.pdf" }] },
+  { title: "Developing a Learning Mindset", issuer: "LinkedIn Learning", category: "pro", date: "2023-02-22", files: [{ label: "PMI certificate", href: "/certificates/li-learning-mindset-pmi.pdf" }, { label: "CPE certificate", href: "/certificates/li-learning-mindset-cpe.pdf" }] },
+  { title: "How to Commit Learning to Memory", issuer: "LinkedIn Learning", category: "pro", date: "2023-02-12", minutes: 14, files: [{ label: "Certificate", href: "/certificates/li-commit-to-memory.pdf" }] },
+  { title: "How to Learn Faster", issuer: "LinkedIn Learning", category: "pro", date: "2023-01-25", minutes: 13, files: [{ label: "Certificate", href: "/certificates/li-learn-faster.pdf" }] },
+  { title: "How to Motivate Yourself to Do What's Most Important", issuer: "LinkedIn Learning", category: "pro", date: "2023-01-09", minutes: 17, files: [{ label: "Certificate", href: "/certificates/li-motivate-yourself.pdf" }] },
+  { title: "Leading When You're Not in Charge", issuer: "LinkedIn Learning", category: "pro", date: "2022-12-31", minutes: 30, files: [{ label: "Certificate", href: "/certificates/li-leading-not-in-charge.pdf" }] },
+  { title: "Learn to Control Your Attention", issuer: "LinkedIn Learning", category: "pro", date: "2023-01-02", minutes: 29, files: [{ label: "Certificate", href: "/certificates/li-control-attention.pdf" }] },
+  { title: "Speaking Confidently and Effectively", issuer: "LinkedIn Learning", category: "pro", date: "2022-12-29", minutes: 22, files: [{ label: "Certificate", href: "/certificates/li-speaking-confidently.pdf" }] },
+  { title: "The Six Morning Habits of High Performers", issuer: "LinkedIn Learning", category: "pro", date: "2023-01-13", minutes: 23, files: [{ label: "Certificate", href: "/certificates/li-morning-habits.pdf" }] },
+  { title: "Train Your Brain's Awareness-Focus Loop", issuer: "LinkedIn Learning", category: "pro", date: "2023-04-08", minutes: 14, files: [{ label: "Certificate", href: "/certificates/li-awareness-focus.pdf" }] },
+  { title: "Creative Thinking and Problem Solving", issuer: "Doroob", category: "pro", date: "2020-05-11", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-creative-thinking.pdf" }] },
+  { title: "Strategic Planning for your Career", issuer: "Doroob", category: "pro", date: "2020-05-07", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-strategic-planning.pdf" }] },
+  { title: "Teamwork Skills", issuer: "Doroob", category: "pro", date: "2020-05-12", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-teamwork.pdf" }] },
+  { title: "Time Management", issuer: "Doroob", category: "pro", date: "2020-05-03", minutes: 240, files: [{ label: "Certificate", href: "/certificates/doroob-time-management.pdf" }] },
+  { title: "Digital skills: succeeding in a digital world", issuer: "The Open University (OpenLearn)", category: "workplace", date: "2022-08-19", minutes: 1440, files: [{ label: "Certificate", href: "/certificates/ol-digital-skills.pdf" }] },
+  { title: "Introduction to Information Technology", issuer: "Doroob", category: "workplace", date: "2020-05-01", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-it-intro.pdf" }] },
+  { title: "Introduction to Microsoft Word", issuer: "Doroob", category: "workplace", date: "2020-05-05", minutes: 180, files: [{ label: "Certificate", href: "/certificates/doroob-word.pdf" }] },
+  { title: "Introduction to Microsoft Outlook", issuer: "Doroob", category: "workplace", date: "2020-05-06", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-outlook.pdf" }] },
+  { title: "Introduction to Microsoft PowerPoint", issuer: "Doroob", category: "workplace", date: "2020-05-08", minutes: 240, files: [{ label: "Certificate", href: "/certificates/doroob-powerpoint.pdf" }] },
+  { title: "IT in the Workplace — How to Present Data", issuer: "Doroob", category: "workplace", date: "2020-05-14", files: [{ label: "Certificate", href: "/certificates/doroob-present-data.pdf" }] },
+  { title: "International English Language Testing System (IELTS) Overview", issuer: "Doroob", category: "workplace", date: "2020-05-31", minutes: 360, files: [{ label: "Certificate", href: "/certificates/doroob-ielts.pdf" }] },
+  { title: "English — Listening", issuer: "Doroob", category: "workplace", date: "2020-06-04", minutes: 60, files: [{ label: "Certificate", href: "/certificates/doroob-english-listening.pdf" }] },
+  { title: "English — Reading and Understanding", issuer: "Doroob", category: "workplace", date: "2020-06-08", minutes: 120, files: [{ label: "Certificate", href: "/certificates/doroob-english-reading.pdf" }] },
+  { title: "Japanese (Intermediate)", issuer: "Injaz Institute for Languages", category: "workplace", date: "2020-05", minutes: 1200 },
+];
