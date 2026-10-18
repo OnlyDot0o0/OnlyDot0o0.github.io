@@ -118,6 +118,14 @@ export const earlierRoles: EarlierRole[] = [
     ],
   },
   {
+    title: "Computer Science Teacher (Internship)",
+    organisation: "Beauchamp City Sixth Form · Lion Heart Trust",
+    period: "Jun 2023 – Jul 2023",
+    summary:
+      "Internship with the Lion Heart Trust at Beauchamp College, working with students from Year 7 up to college level and supporting those preparing for GCSE and A-level computer science. Organised and ran specialised Year 12 sessions introducing object-oriented programming, with a designed series of lab tasks.",
+    tags: ["GCSE & A-level Computer Science", "Object-Oriented Programming"],
+  },
+  {
     title: "Team Lead",
     organisation: "University of Leicester",
     period: "Mar 2022 – Oct 2022",
